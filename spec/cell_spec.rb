@@ -43,3 +43,13 @@ RSpec.describe 'Cell linking' do
     expect(cell_1.linked?(cell_3)).to be true
   end
 end
+
+RSpec.describe 'Cell neighbors' do
+  it 'initialized cell should have no neighbors' do
+    cell = Cell.new(0, 0)
+
+    result = cell.neighbours
+
+    expect(result.size).to eq(0)
+  end
+end

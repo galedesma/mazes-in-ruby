@@ -27,4 +27,13 @@ class Cell
   def linked?(cell)
     @links.key?(cell)
   end
+
+  def neighbours
+    list = []
+    list << north if north
+    list << south if south
+    list << east if east
+    list << west if west
+    list
+  end
 end
