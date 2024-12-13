@@ -27,4 +27,19 @@ RSpec.describe 'Cell linking' do
 
     expect(cell_1.linked?(cell_2)).to be false
   end
+
+  it "linking cell 1 to two other different cells should be successful" do
+    cell_1 = Cell.new(0, 0)
+    cell_2 = Cell.new(1, 1)
+    cell_3 = Cell.new(2, 2)
+
+    cell_1.link(cell_2)
+    cell_1.link(cell_3)
+
+    result = cell_1.links
+
+    expect(result.size).to eq(2)
+    expect(cell_1.linked?(cell_2)).to be true
+    expect(cell_1.linked?(cell_3)).to be true
+  end
 end

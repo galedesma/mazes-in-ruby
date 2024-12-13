@@ -20,6 +20,10 @@ class Cell
     self
   end
 
+  def links
+    @links.keys
+  end
+
   def linked?(cell)
     @links.key?(cell)
   end
