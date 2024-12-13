@@ -7,4 +7,14 @@ class Cell
     @column = column
     @links = {}
   end
+
+  def link(cell, bidirectional = true)
+    @links[cell] = true
+    cell.link(self, false) if bidirectional
+    self
+  end
+
+  def linked?(cell)
+    @links.key?(cell)
+  end
 end
