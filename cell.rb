@@ -14,6 +14,12 @@ class Cell
     self
   end
 
+  def unlink(cell, bidirectional = true)
+    @links.delete(cell)
+    cell.unlink(self, false) if bidirectional
+    self
+  end
+
   def linked?(cell)
     @links.key?(cell)
   end
