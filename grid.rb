@@ -9,6 +9,12 @@ class Grid
     @grid = prepare_grid
   end
 
+  def random_cell
+    row = rand(@rows)
+    column = rand(@grid[row].count)
+    self[row, column]
+  end
+
   def [](row, column)
     return nil unless row.between?(0, @rows - 1)
     return nil unless column.between?(0, @columns - 1)

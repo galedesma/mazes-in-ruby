@@ -29,3 +29,12 @@ RSpec.describe 'Grid custom array accessor' do
     expect(cell).to eq(nil)
   end
 end
+
+RSpec.describe 'Grid random cell' do
+  it 'should return a non-nil cell' do
+    grid = Grid.new(10, 10)
+    cell = grid.random_cell
+
+    expect(cell).not_to eq(nil)
+  end
+end
