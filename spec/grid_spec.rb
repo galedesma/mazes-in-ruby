@@ -38,3 +38,11 @@ RSpec.describe 'Grid random cell' do
     expect(cell).not_to eq(nil)
   end
 end
+
+RSpec.describe 'Grid size' do
+  it 'should be rows * columns' do
+    grid = Grid.new(10, 10)
+
+    expect(grid.size).to eq(100)
+  end
+end

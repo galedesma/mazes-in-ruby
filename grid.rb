@@ -15,6 +15,10 @@ class Grid
     self[row, column]
   end
 
+  def size
+    @rows * @columns
+  end
+
   def [](row, column)
     return nil unless row.between?(0, @rows - 1)
     return nil unless column.between?(0, @columns - 1)
