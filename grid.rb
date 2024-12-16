@@ -25,6 +25,14 @@ class Grid
     end
   end
 
+  def each_cell
+    each_row do |row|
+      row.each do |cell|
+        yield cell if cell
+      end
+    end
+  end
+
   def [](row, column)
     return nil unless row.between?(0, @rows - 1)
     return nil unless column.between?(0, @columns - 1)

@@ -55,6 +55,14 @@ RSpec.describe 'Grid iteration' do
     grid.each_row { counter += 1 }
 
     expect(counter).to eq(grid.rows)
+  end
 
+  it 'should iterate over each cell correctly' do
+    grid = Grid.new(10, 10)
+
+    counter = 0
+    grid.each_cell {counter += 1}
+
+    expect(counter).to eq(grid.columns * grid.rows)
   end
 end
