@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 require_relative 'cell'
 
+##
+# Base Grid class
 class Grid
   attr_reader :rows, :columns
 
@@ -19,10 +23,8 @@ class Grid
     @rows * @columns
   end
 
-  def each_row
-    @grid.each do |row|
-      yield row
-    end
+  def each_row(&block)
+    @grid.each(&block)
   end
 
   def each_cell
@@ -36,10 +38,12 @@ class Grid
   def [](row, column)
     return nil unless row.between?(0, @rows - 1)
     return nil unless column.between?(0, @columns - 1)
+
     @grid[row][column]
   end
 
   private
+
   def prepare_grid
     Array.new(rows) do |row|
       Array.new(columns) do |column|

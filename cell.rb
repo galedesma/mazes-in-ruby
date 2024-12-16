@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+##
+# Base Cell class
 class Cell
   attr_reader :row, :column
   attr_accessor :north, :south, :east, :west
@@ -8,15 +12,15 @@ class Cell
     @links = {}
   end
 
-  def link(cell, bidirectional = true)
+  def link(cell, bidirectional: true)
     @links[cell] = true
-    cell.link(self, false) if bidirectional
+    cell.link(self, bidirectional: false) if bidirectional
     self
   end
 
-  def unlink(cell, bidirectional = true)
+  def unlink(cell, bidirectional: true)
     @links.delete(cell)
-    cell.unlink(self, false) if bidirectional
+    cell.unlink(self, bidirectional: false) if bidirectional
     self
   end
 

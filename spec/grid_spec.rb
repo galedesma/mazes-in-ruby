@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require_relative '../grid'
 
@@ -61,7 +63,7 @@ RSpec.describe 'Grid iteration' do
     grid = Grid.new(10, 10)
 
     counter = 0
-    grid.each_cell {counter += 1}
+    grid.each_cell { counter += 1 }
 
     expect(counter).to eq(grid.columns * grid.rows)
   end
