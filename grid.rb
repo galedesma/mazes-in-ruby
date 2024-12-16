@@ -19,6 +19,12 @@ class Grid
     @rows * @columns
   end
 
+  def each_row
+    @grid.each do |row|
+      yield row
+    end
+  end
+
   def [](row, column)
     return nil unless row.between?(0, @rows - 1)
     return nil unless column.between?(0, @columns - 1)
