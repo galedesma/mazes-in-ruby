@@ -17,7 +17,7 @@ RSpec.describe 'Grid creation' do
 end
 
 RSpec.describe 'Grid configuration' do
-  #To ensure we don't get a random cell at the border
+  # To ensure we don't get a random cell at the border
   before do
     srand(1234)
   end
