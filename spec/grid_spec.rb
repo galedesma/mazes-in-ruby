@@ -16,6 +16,32 @@ RSpec.describe 'Grid creation' do
   end
 end
 
+RSpec.describe 'Grid configuration' do
+  #To ensure we don't get a random cell at the border
+  before do
+    srand(1234)
+  end
+
+  it 'should configure each cell appropriately' do
+    grid = Grid.new(10, 10)
+    cell = grid.random_cell
+
+    aggregate_failures do
+      expect(cell.north.row).to eq(cell.row - 1)
+      expect(cell.north.column).to eq(cell.column)
+
+      expect(cell.south.row).to eq(cell.row + 1)
+      expect(cell.south.column).to eq(cell.column)
+
+      expect(cell.west.row).to eq(cell.row)
+      expect(cell.west.column).to eq(cell.column - 1)
+
+      expect(cell.east.row).to eq(cell.row)
+      expect(cell.east.column).to eq(cell.column + 1)
+    end
+  end
+end
+
 RSpec.describe 'Grid custom array accessor' do
   it 'returns the cell instance if coordinates are inside the grid' do
     grid = Grid.new(10, 10)

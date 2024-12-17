@@ -11,6 +11,7 @@ class Grid
     @rows = rows
     @columns = columns
     @grid = prepare_grid
+    configure_cells
   end
 
   def random_cell
@@ -49,6 +50,17 @@ class Grid
       Array.new(columns) do |column|
         Cell.new(row, column)
       end
+    end
+  end
+
+  def configure_cells
+    each_cell do |cell|
+      row = cell.row
+      column = cell.column
+      cell.north = self[row - 1, column]
+      cell.south = self[row + 1, column]
+      cell.west = self[row, column - 1]
+      cell.east = self[row, column + 1]
     end
   end
 end
