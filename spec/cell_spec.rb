@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rspec'
-require_relative '../cell'
+require_relative '../domain/cell'
 
 RSpec.describe 'Cell creation' do
   it 'should get created successfully' do

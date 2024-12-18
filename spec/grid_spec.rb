@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rspec'
-require_relative '../grid'
+require_relative '../domain/grid'
 
 RSpec.describe 'Grid creation' do
   it 'creates a new grid successfully' do
