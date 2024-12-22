@@ -3,7 +3,7 @@
 ##
 # Binary Tree Algorithm Implementation.
 class BinaryTree
-  def on(grid)
+  def self.on(grid)
     grid.each_cell do |cell|
       neighbours = []
       neighbours << cell.north if cell.north
